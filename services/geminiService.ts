@@ -1,14 +1,7 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import type { SlideDeck } from '../types';
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable is not set.");
-}
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const slideSchema = {
   type: Type.OBJECT,
@@ -51,9 +44,13 @@ export const generatePresentationSlides = async (): Promise<SlideDeck> => {
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-pro",
-      contents: "Generate a fun, easy-to-read slide presentation for a 5-minute TED-style talk about the good and bad sides of social media for teenagers. The speaker is 13, and the audience is their classmates. The output should be structured as a series of slides. Start with a slide that has a super catchy, surprising, or funny opening hook. End with a slide that has a powerful, simple, and memorable closing statement. Keep the language simple, direct, and use emojis.",
+      contents: `Generate a fun, energetic slide presentation for a 5-minute TED-style talk about the hidden benefits of playing video games. The speaker is 13, and the audience is their classmates. The output should be structured as a series of slides.
+- **Hook:** Start with a super surprising or myth-busting fact about gaming. Something like 'What if I told you that playing Fortnite could help you ace your next math test?'
+- **Core Content:** Cover 3-4 'superpowers' that gaming develops, such as problem-solving, creativity (mentioning games like Minecraft), teamwork (mentioning games like Among Us or Valorant), and resilience (learning from failure).
+- **Closing:** End with a powerful, poignant message about balance. The idea is that games are an amazing tool, but they're one part of a healthy life. The final message should be something memorable and empowering, like 'Don't just be a player in the game, be the player of your life.'
+- **Tone:** Keep the language simple, direct, and use relevant emojis.`,
       config: {
-        systemInstruction: "You are an expert presentation designer who is amazing at creating slide decks for teenagers. You're crafting a 5-minute TED-style talk for a 13-year-old to give to their classmates. The tone must be super relatable, a bit like a popular YouTuber or a cool older sibling. Use simple language, short bullet points, and fun emojis. The goal is to be authentic, visually engaging, and thought-provoking, not preachy.",
+        systemInstruction: "You are an expert presentation designer who is amazing at creating slide decks for teenagers. You're crafting a 5-minute TED-style talk for a 13-year-old to give to their classmates about the surprising benefits of gaming. The tone must be super relatable, energetic, and exciting, like a popular gaming YouTuber or a cool older sibling. Use simple language, short bullet points, and fun, game-related emojis (e.g., 🎮, 🚀, 🧠, 💪). The goal is to be authentic, visually engaging, and thought-provoking, celebrating gaming while also encouraging a balanced life.",
         responseMimeType: "application/json",
         responseSchema: slideDeckSchema,
         temperature: 0.8,

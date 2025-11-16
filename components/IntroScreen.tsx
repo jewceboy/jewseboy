@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface IntroScreenProps {
@@ -10,12 +9,12 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onGenerate }) => {
     <div className="flex flex-col items-center justify-center text-center p-8 animate-fade-in">
         <div className="relative mb-6">
             <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight">
-                <span className="text-red-600">TED</span>-Style Talk
+                Your Gaming <span className="text-red-600">Superpowers</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mt-2">Generator</p>
+            <p className="text-lg md:text-xl text-gray-300 mt-2">A TED-Style Talk Generator</p>
         </div>
       <p className="max-w-2xl text-gray-400 mb-8 text-base md:text-lg">
-        Create a compelling 5-minute presentation on the pros and cons of social media for teenagers. Click the button below to generate your script instantly.
+        Discover the hidden skills you're learning from video games. Generate a compelling 5-minute talk that proves gaming is more than just a game. Click below to unlock your script!
       </p>
       <button
         onClick={onGenerate}

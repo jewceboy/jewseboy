@@ -1,5 +1,5 @@
 {
-  "name": "ted-style-talk-generator",
+  "name": "gaming-superpowers:-a-ted-style-talk-generator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,8 +10,9 @@
   },
   "dependencies": {
     "@google/genai": "^1.29.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "pptxgenjs": "3.12.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
