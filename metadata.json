@@ -1,0 +1,5 @@
+{
+  "name": "TED-Style Talk Generator",
+  "description": "Generate a 5-minute TED-style presentation script on the pros and cons of social media for teenagers using the Gemini API.",
+  "requestFramePermissions": []
+}
